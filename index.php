@@ -3,10 +3,11 @@
   session_start();
 
   $tampil  = "SELECT * FROM tb_produk ";
-  $hasi    = mysqli_query($db, $tampil);
-  $jumlah  = mysqli_num_rows($hasi);
-  
-?>  
+  $hasil    = mysqli_query($db, $tampil);
+  $jumlah  = mysqli_num_rows($hasil);
+
+  ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -34,20 +35,23 @@
     ?>
     
     <li><a href="about.php">About</a></li>
-    <li><a href="keranjang.php">Keranjang</a></li>
-    <img class ="logo" src="img/cel.png" alt="gambarnya logonya" width="200px">
+    <li><a href="user/keranjang.php">Keranjang</a></li>
+    <li><a href="compact_view.php">Compact View</a></li>
+    <img class ="logo" src="gambar/cel.png" alt="gambarnya logonya" width="200px">
     </ul> 
   </nav>
+
     <p class="info">Produk</p>
 
     <div class="container-card">
     <?php
       if($jumlah > 0){
-        while($row = mysqli_fetch_assoc($hasi)){
+        while($row = mysqli_fetch_assoc($hasil)){
     ?>
+
     <div class="card" style="width: 18rem;">
       <div class="row">
-        <img class="card-img-top" src="img/<?=$row['gambar']?>" alt="gambar_produk" width="50px">
+        <img class="card-img-top" src="gambar/<?=$row['gambar']?>" alt="gambar_produk" width="50px">
         <div class="card-body">
             <h5 class="card-title"><?= $row['kategori'] ?></h5>
             <p class="card-text">Rp.<?= $row['harga']?></p>
@@ -76,7 +80,7 @@
             <li><a href="https://wa.me/6281254424739"><i class="fa1 fas fa-phone"></i> Contact</a></li>
             <li><a href="https://twitter.com/Cnoxerr12345"><i class="fa1 fa-brands fa-twitter"></i> Twiter</a></li>
             <li><a href="https://www.instagram.com/ash4rr/"><i class="fa1 fa-brands fa-instagram"></i> Instagram</a></li>
-            <img class ="logo2" src="img/vel.png" alt="gambarnya logonya"   width="200px">
+            <img class ="logo2" src="gambar/vel.png" alt="gambarnya logonya"   width="200px">
         </ul>
     </div>
 </div>
@@ -291,6 +295,11 @@ th {
   margin-left: -12px;
   font-size: 18px;
 }
+
+.tombol{
+  float:right;
+}
+
 
 }
 

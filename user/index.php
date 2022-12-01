@@ -3,8 +3,8 @@
   session_start();
 
   $tampil  = "SELECT * FROM tb_produk ";
-  $hasi    = mysqli_query($db, $tampil);
-  $jumlah  = mysqli_num_rows($hasi);
+  $hasil    = mysqli_query($db, $tampil);
+  $jumlah  = mysqli_num_rows($hasil);
   
 ?>  
 <!DOCTYPE html>
@@ -30,8 +30,9 @@
     ?>
     
     </a></li> 
+    <li><a href="compact_view.php">Compact View</a></li>
     <li><a href="keranjang.php"><i class="fa-solid fa-cart-shopping"></i> Keranjang</a></li>
-    <img class ="logo" src="..\img/cel.png" alt="gambarnya logonya" width="200px">
+    <img class ="logo" src="..\gambar/cel.png" alt="gambarnya logonya" width="200px">
 
     </ul> 
   </nav>
@@ -42,7 +43,7 @@
     <div class="container-card">
     <?php
       if($jumlah > 0){
-        while($row = mysqli_fetch_assoc($hasi)){
+        while($row = mysqli_fetch_assoc($hasil)){
     ?>
      <div class="card" style="width: 18rem;">
       <div class="row">
